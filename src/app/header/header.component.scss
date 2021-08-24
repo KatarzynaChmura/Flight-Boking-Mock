@@ -1,0 +1,52 @@
+.nav {
+  &__background {
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .50);
+
+    background-color: #37577C;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  &__box {
+    &__navigation {
+
+      width: 334px;
+      display: flex;
+      justify-content: space-between;
+
+
+      &--btn {
+        background-color: #678DAE;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 159px;
+        color: #fff;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #625875;
+        }
+      }
+    }
+
+    &__user {
+
+      width: 244px;
+      display: flex;
+      justify-content: space-between;
+
+
+      &--btn {
+        background-color: #678DAE;
+        text-transform: uppercase;
+        letter-spacing: 1px;        
+        color: #fff;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #625875;
+        }
+      }
+    }
+  }
+}

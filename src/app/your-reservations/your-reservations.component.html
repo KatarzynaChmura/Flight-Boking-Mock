@@ -1,0 +1,160 @@
+<div class="container mar-t-30 mar-b-30">
+  <div class="your-reservations row d-flex justify-content-between align-items-center ">
+    <div class="your-reservations__left col-12 col-md-5 mar-t-30 mar-b-30">
+      <h2>Rezerwacja lotu</h2>
+
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="d-flex flex-column">
+
+        <!-- <label for="first-name">Imię: </label>
+        <input id="first-name" type="text" formControlName="firstName"> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label for="first-name">Imię</mat-label>
+          <input id="first-name" matInput type="text" formControlName="firstName">
+        </mat-form-field>
+
+        <!-- <label for="last-name">Nazwisko </label>
+        <input id="last-name" type="text" formControlName="lastName"> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label for="last-name">Nazwisko</mat-label>
+            <input id="last-name" matInput type="text" formControlName="lastName">
+          </mat-form-field>
+
+        <!-- <label for="passangers">Ilość osób: </label>
+        <input id="passangers" type="number" formControlName="passangers"> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label for="passangers">Ilość osób</mat-label>
+            <input id="passangers" matInput type="number" formControlName="passangers">
+          </mat-form-field>
+
+        <!-- <label for="class">Klasa</label>
+
+        <select name="class" id="class" formControlName="class">
+          <option value="">--Wybierz klasę--</option>
+          <option value="economic">ekonomiczna</option>
+          <option value="business">biznesowa</option>
+          <option value="first">pierwsza</option>
+
+        </select> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label for="class">Klasa</mat-label>
+            <mat-select name="class" id="class" formControlName="class">
+              <mat-option value="economic">ekonomiczna</mat-option>
+              <mat-option value="business">biznesowa</mat-option>
+              <mat-option value="first">pierwsza</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="datetime-local" placeholder="Data i godzina wylotu">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="datetime-local" placeholder="Data i godzina powrotu">
+        </mat-form-field>
+
+        <!-- <label for="departure">Miejsce wylotu</label>
+
+        <select name="departure" id="departure" formControlName="departure">
+          <option value="">--Wybierz miejsce--</option>
+          <option value="rzeszow">Rzeszów Jasionka (RZE)</option>
+          <option value="lublin">Lublin Świdnik (LUB)</option>
+          <option value="katowice">Katowice Pyrzowice (KTW)</option>
+          <option value="okecie">Warszawa Okęcie (WAW)</option>
+          <option value="modlin">Warszawa Modlin (WMI)</option>
+          <option value="moskwa">Moskwa Rosja</option>
+          <option value="rejkiawik">Rejkiawik Islandia (RKV)</option>
+          <option value="krakow">Kraków Balice (KRK)</option>
+
+        </select> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label for="departure">Miejsce wylotu</mat-label>
+            <mat-select name="departure" id="departure" formControlName="departure">
+              <mat-option value="rzeszow">Rzeszów Jasionka (RZE)</mat-option>
+              <mat-option value="lublin">Lublin Świdnik (LUB)</mat-option>
+              <mat-option value="katowice">Katowice Pyrzowice (KTW)</mat-option>
+              <mat-option value="okecie">Warszawa Okęcie (WAW)</mat-option>
+              <mat-option value="modlin">Warszawa Modlin (WMI)</mat-option>
+              <mat-option value="moskwa">Moskwa Rosja</mat-option>
+              <mat-option value="rejkiawik">Rejkiawik Islandia (RKV)</mat-option>
+              <mat-option value="krakow">Kraków Balice (KRK)</mat-option>
+            </mat-select>
+          </mat-form-field>
+<!-- 
+        <label for="arrival">Miejsce przylotu</label>
+
+        <select name="arrival" id="arrival" formControlName="arrival">
+          <option value="">--Wybierz miejsce--</option>
+          <option value="rzeszow">Rzeszów Jasionka (RZE)</option>
+          <option value="lublin">Lublin Świdnik (LUB)</option>
+          <option value="katowice">Katowice Pyrzowice (KTW)</option>
+          <option value="okecie">Warszawa Okęcie (WAW)</option>
+          <option value="modlin">Warszawa Modlin (WMI)</option>
+          <option value="moskwa">Moskwa Rosja</option>
+          <option value="rejkiawik">Rejkiawik Islandia (RKV)</option>
+          <option value="krakow">Kraków Balice (KRK)</option>
+
+        </select> -->
+
+        <mat-form-field appearance="fill">
+            <mat-label for="arrival">Miejsce przylotu</mat-label>
+            <mat-select name="arrival" id="arrival" formControlName="arrival">
+              <mat-option value="rzeszow">Rzeszów Jasionka (RZE)</mat-option>
+              <mat-option value="lublin">Lublin Świdnik (LUB)</mat-option>
+              <mat-option value="katowice">Katowice Pyrzowice (KTW)</mat-option>
+              <mat-option value="okecie">Warszawa Okęcie (WAW)</mat-option>
+              <mat-option value="modlin">Warszawa Modlin (WMI)</mat-option>
+              <mat-option value="moskwa">Moskwa Rosja</mat-option>
+              <mat-option value="rejkiawik">Rejkiawik Islandia (RKV)</mat-option>
+              <mat-option value="krakow">Kraków Balice (KRK)</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+      </form>
+
+      <!-- <p>Complete the form to enable button.</p> -->
+      <button mat-flat-button class="your-reservations__left--btn" type="submit" [disabled]="!profileForm.valid">Dodaj
+        do koszyka</button>
+      <!-- <p>Form Status: {{ profileForm.status }}</p> -->
+    </div>
+    <div class="your-reservations__right col-12 col-md-6">
+      <h2>Lista lotów</h2>
+      <mat-table [dataSource]="dataSource" class="search-results__table">
+        <ng-container matColumnDef="departure">
+          <mat-header-cell *matHeaderCellDef> Odlot z </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.departure}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="arrival">
+          <mat-header-cell *matHeaderCellDef> Przylot do </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.arrival}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="outlet">
+          <mat-header-cell *matHeaderCellDef> Wylot dnia </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.outlet}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="outlethour">
+          <mat-header-cell *matHeaderCellDef> Wylot o godzinie </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.outlethour}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Szczegóły </mat-header-cell>
+          <mat-cell *matCellDef="let row"> <a href="/reservations"><img src="../../assets/icons/arrow-right-circle.svg"
+                alt=""></a> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+    </div>
+  </div>
+</div>

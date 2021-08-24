@@ -1,0 +1,43 @@
+.your-reservations {
+  margin-left: 0;
+  margin-right: 0;
+
+  &__left {
+    padding: 20px 16px 20px 16px;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    // height: 400px;
+    // max-width: 100%;
+    // overflow: auto;
+    &--btn {
+        background-color: #678DAE;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: auto;
+        color: #fff;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #625875;
+        }
+      }
+
+  }
+
+  &__right {
+    padding: 20px 16px 20px 16px;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .your-reservaions {
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
+}

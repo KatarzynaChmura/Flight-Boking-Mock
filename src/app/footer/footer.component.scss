@@ -1,0 +1,14 @@
+.footer {
+  &__background {
+    background-color: #37577C;
+    padding-top: 32px;
+    padding-bottom: 25px;
+  }
+
+  &__content {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    // font-weight: bold;
+  }
+}

@@ -1,0 +1,124 @@
+<div class="container mar-t-30 mar-b-30">
+  <div class="search-flights">
+    <h2>Wyszukaj loty - Filtr działający</h2>
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+
+      <mat-form-field *ngFor="let filter of filterSelectObj">
+        <mat-label>Wyszukaj {{filter.name}}</mat-label>
+        <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"
+          (change)="filterChange(filter,$event)">
+          <option value="">-- Wybierz {{filter.name}} --</option>
+          <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>
+        </select>
+      </mat-form-field>
+      &nbsp;
+      <button mat-flat-button class="search-flights--btn" (click)="resetFilters()">Resetuj</button>
+
+    </div>
+  </div>
+
+  <div class="search-flights mar-t-30">
+    <h2>Wyszukaj loty - Sam wygląd, Filtr bez funkcjonalności</h2>
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <mat-form-field>
+        <mat-label>Wylot</mat-label>
+        <select matNativeControl name="test">
+          <option value="">-- Select --</option>
+          <option [value]="">item</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Przylot</mat-label>
+        <select matNativeControl name="test">
+          <option value="">-- Select --</option>
+          <option [value]="">item</option>
+        </select>
+      </mat-form-field>
+      <div [formGroup]="range">
+        <mat-form-field appearance="fill">
+          <mat-label>Wybierz datę wylotu i powrotu</mat-label>
+          <mat-date-range-input [rangePicker]="picker" type="datetime-local" [min]="today">
+            <input matStartDate placeholder="Wylot" formControlName="start">
+            <input matEndDate placeholder="Przylot" formControlName="end">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+
+          <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+          <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <mat-form-field>
+        <input matInput type="datetime-local" placeholder="start date">
+      </mat-form-field>
+      <!-- <p>Selected range: {{range.value | json}}</p> -->
+      <div class=""><a href=""><button class="btn btn-primary">search</button></a></div>
+
+
+    </div>
+  </div>
+
+  <!-- <div class="search-flights mar-t-30">
+    <h2>Wyszukaj loty - Filtr standardowy</h2>
+    <mat-form-field appearance="standard">
+      <mat-label>Filtr</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input>
+    </mat-form-field>
+  </div> -->
+
+  <div class="mar-t-30">
+    <div class="search-results">
+      <h2>Lista lotów</h2>
+      <mat-table [dataSource]="dataSource" class="search-results__table">
+
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="departure">
+          <mat-header-cell *matHeaderCellDef> Odlot z </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.departure}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="arrival">
+          <mat-header-cell *matHeaderCellDef> Przylot do </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.arrival}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="outlet">
+          <mat-header-cell *matHeaderCellDef> Wylot dnia </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.outlet}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="outlethour">
+          <mat-header-cell *matHeaderCellDef> Wylot o godzinie </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.outlethour}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="return">
+          <mat-header-cell *matHeaderCellDef> Powrót dnia </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.return}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="returnhour">
+          <mat-header-cell *matHeaderCellDef> Powrót o godzinie </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.returnhour}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Szczegóły </mat-header-cell>
+          <mat-cell *matCellDef="let row"> <a href="/reservations"><img src="../../assets/icons/arrow-right-circle.svg" alt=""></a> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+
+    </div>
+  </div>
+
+</div>
